@@ -46,7 +46,32 @@ If any Error, correct it in code and execute again
 Verify the generated waveform using Tabulation and Model Waveform 
 
 __PROGRAM:__
+```c
+clc
+clear all;
+t=0:0.01:2*%pi;
+x=sin(2*t);
+subplot (3,2,1);
+plot(x);
+au=xcorr(x,x);
+subplot(3,2,2);
+plot (au);
+v=fft(au);
+subplot (3,2,3);
+plot (abs(v));
+fw=fft(x);
+subplot (3,2,4);
+plot (fw);
+fw2=(abs(fw)).^2;
+subplot (3,2,5);
+plot (fw2);
+```
 
 __OUTPUT:__
 
+<img width="904" height="422" alt="6" src="https://github.com/user-attachments/assets/4c18a0bc-2a42-4871-8284-16c3eed8690e" />
+
+
 __RESULT:__
+
+Thus, the Autocorrelation and PSD are executed in SCILab and output is verified.
